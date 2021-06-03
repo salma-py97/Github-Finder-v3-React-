@@ -1,3 +1,7 @@
 .form-control:focus{
   box-shadow: none;
 }
+.form-control{
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}

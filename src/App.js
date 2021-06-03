@@ -7,7 +7,7 @@ import About from './components/pages/About'
 import NotFound from './components/pages/NotFound'
 import Navbar from './components/layout/Navbar'
 import UserDetails from './components/users/UserDetails'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
     const data = await res.json()
     setRepos(data)
   }
+
 
 
   return (

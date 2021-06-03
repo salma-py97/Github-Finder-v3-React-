@@ -1,19 +1,20 @@
 import {useState} from 'react'
-import Alert from '../layout/Alert'
 
 
-const Search = () => {
+const Search = ({searchUsers, showAlert}) => {
   const [text, setText] = useState("")
 
   const onSubmit = (e) => {
     e.preventDefault()
 
     if (text===""){
-      // setAlert(true)
-      console.log("ALEEEEEEEEEEEEEEEEEERT")    
+      // show Alert
+      showAlert() 
     }
     else {
-      console.log(`I want ${text}`)
+      searchUsers(text)
+      // clear Form
+      setText("")
     }
   }
 
@@ -21,15 +22,24 @@ const Search = () => {
     setText(e.target.value)
   }
 
-  return (
-    <form className='mb-5' onSubmit={onSubmit} >
-      <div className="d-flex" >
-        <input type="text" className="form-control  border-end-0" placeholder="Enter a username..." onChange={onChange} value={text} />
-        <button type="submit" className="btn btn-primary border-start-0 px-5">Search</button>
-      </div>
 
-    </form>
+
+  return (
+      <form className='mb-3' onSubmit={onSubmit} >
+        <div className="d-flex" >
+          <input type="text" className="form-control  border-end-0" placeholder="Enter a username..." onChange={onChange} value={text} />
+          <button type="submit" className="btn btn-primary border-start-0 px-5" style={buttonStyle} >Search</button>
+        </div>
+
+      </form>
+
   )
+}
+
+
+const buttonStyle = {
+  borderBottomLeftRadius: "0",
+  borderTopLeftRadius: "0"
 }
 
 export default Search

@@ -11,7 +11,7 @@ const User = ({user}) => {
     <div className="card card-body text-center d-flex justify-content-center align-items-center">
       <img src={avatar_url} alt="img" className="img-fluid d-block m-auto rounded-circle mb-2" style={{width: '100px'}} /> 
       <p>{login}</p>
-      <Link to={`/user/${login}`} className="btn btn-info btn-sm">More</Link>
+      <Link to={`/user/${login}`} className="btn btn-info btn-sm px-4">More</Link>
       
     </div>
   )

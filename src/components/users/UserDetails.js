@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 import Repos from '../repos/Repos'
 import {Link} from 'react-router-dom'
 import {AiOutlineClose} from 'react-icons/ai'
