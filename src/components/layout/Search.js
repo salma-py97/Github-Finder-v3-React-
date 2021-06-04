@@ -1,7 +1,14 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import GithubContext from '../context/githubContext'
+
+const Search = ({showAlert}) => {
+  // initialize context
+  const githubContext = useContext(GithubContext) 
+  // Destructuring
+  const {searchUsers} = githubContext
 
 
-const Search = ({searchUsers, showAlert}) => {
+
   const [text, setText] = useState("")
 
   const onSubmit = (e) => {

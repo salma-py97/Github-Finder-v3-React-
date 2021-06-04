@@ -1,4 +1,12 @@
-const Clear = ({clearUsers}) => {
+import {useContext} from 'react'
+import GithubContext from '../context/githubContext'
+
+const Clear = () => {
+
+  // Initialize context
+  const githubContext = useContext(GithubContext)
+  // Destructuring
+  const {clearUsers} = githubContext
 
   const onClick = () => {
     clearUsers()

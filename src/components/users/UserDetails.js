@@ -5,13 +5,19 @@ import {AiOutlineClose} from 'react-icons/ai'
 import {AiOutlineCheck} from 'react-icons/ai'
 import {BsArrowLeft} from 'react-icons/bs'
 
+import {useContext} from 'react'
+import GithubContext from '../context/githubContext'
 
 
-const UserDetails = ({user, getUser, match, repos, getRepos}) => {
+
+const UserDetails = ({match}) => {
+
+  // initialize Context
+  const githubContext = useContext(GithubContext)
+  // Destructuring
+  const {user, getUser, repos, getRepos} = githubContext
 
   const {name, avatar_url, location, bio, blog, login, html_url, followers, following, public_repos, public_gists, hireable, company} = user;
-
-  // const [repos, setRepos] = useState([])
 
 
   useEffect(() => {
