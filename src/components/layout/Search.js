@@ -1,13 +1,11 @@
 import {useState, useContext} from 'react'
 import GithubContext from '../context/githubContext'
 
-const Search = ({showAlert}) => {
+const Search = () => {
   // initialize context
   const githubContext = useContext(GithubContext) 
   // Destructuring
-  const {searchUsers} = githubContext
-
-
+  const {searchUsers, showAlert} = githubContext
 
   const [text, setText] = useState("")
 
@@ -15,7 +13,6 @@ const Search = ({showAlert}) => {
     e.preventDefault()
 
     if (text===""){
-      // show Alert
       showAlert() 
     }
     else {
@@ -28,8 +25,6 @@ const Search = ({showAlert}) => {
   const onChange = (e) => {
     setText(e.target.value)
   }
-
-
 
   return (
       <form className='mb-3' onSubmit={onSubmit} >

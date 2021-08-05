@@ -1,8 +1,6 @@
 
 const RepoItem = ({repo}) => {
 
-
-
   const {name, description, language, forks_count, watchers_count, html_url, stargazers_count } = repo
 
 

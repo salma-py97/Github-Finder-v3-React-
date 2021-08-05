@@ -6,3 +6,5 @@ export const GET_REPOS = 'GET_REPOS';
 export const SET_LOADING = 'SET_LOADING';
 export const SET_CLEAR = 'SET_CLEAR';
 export const SET_CLEAR_TRUE = 'SET_CLEAR_TRUE';
+export const SET_ALERT = 'SET_ALERT';
+export const SET_ALERT_FALSE = 'SET_ALERT_FALSE';

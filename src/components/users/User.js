@@ -1,20 +1,8 @@
 import {Link} from 'react-router-dom'
 
-// import {useContext} from 'react'
-// import GithubContext from '../context/githubContext'
-
-
 const User = ({user}) => {
-  // // initalize context
-  // const githubContext = useContext(GithubContext)
-  // // Destructuring
-  // const {user} = githubContext
 
   const {login, avatar_url} = user
-
-  console.log(login)
-
-
 
   return (
     <div className="card card-body text-center d-flex justify-content-center align-items-center">

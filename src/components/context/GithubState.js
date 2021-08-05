@@ -9,9 +9,10 @@ import GithubContext from './githubContext'
 import GithubReducer from './githubReducer'
 
 
-import {SEARCH_USERS, CLEAR_USERS, GET_USERS, GET_REPOS, GET_USER, SET_LOADING, SET_CLEAR, SET_CLEAR_TRUE} from './types'
+import {SEARCH_USERS, CLEAR_USERS, GET_USERS, GET_REPOS, GET_USER, SET_LOADING, SET_CLEAR, SET_CLEAR_TRUE, SET_ALERT, SET_ALERT_FALSE} from './types'
 
-
+const githubClientId = process.env.GITHUB_CLIENT_ID;
+const githubClientSecret = process.env.GITHUB_CLIENT_SECRET;
 
 const GithubState = props => {
 
@@ -22,7 +23,8 @@ const GithubState = props => {
     repos: [],
     repo:{},
     loading: false,
-    clear: true
+    clear: true,
+    alert: false
   }
 
   // linking githubReducer with initial State
@@ -41,14 +43,14 @@ const GithubState = props => {
     
   const getUsers = async () => {
     setLoading()
-    const res = await fetch("https://api.github.com/users?client_id=f37d067fa15383561be6&client_secret=3ec659087b75425ab04b2f04e4e640f61397519a")
+    const res = await fetch(`https://api.github.com/users?client_id=${githubClientId}&client_secret=${githubClientSecret}`)
     const data = await res.json()
     return data
   }
 
   const searchUsers = async (query) => {
     setLoading()
-    const res = await fetch(`https:api.github.com/search/users?q=${query}&client_id=f37d067fa15383561be6&client_secret=3ec659087b75425ab04b2f04e4e640f61397519a`)
+    const res = await fetch(`https:api.github.com/search/users?q=${query}&client_id=${githubClientId}&client_secret=${githubClientSecret}`)
     const data = await res.json()
 
     dispatch({type: SEARCH_USERS, payload: data.items})
@@ -74,12 +76,10 @@ const GithubState = props => {
     setClear()
   }
 
-  // const showAlert = () => {
-  //   setAlert(true)
-  //   setTimeout(() => setAlert(false), 1500)
-  // }
-
-  
+  const showAlert = () => {
+    dispatch({type: SET_ALERT})
+    setTimeout(() => {dispatch({type: SET_ALERT_FALSE})}, 1500)
+  }
 
 
   const setLoading = () => {
@@ -102,6 +102,7 @@ const GithubState = props => {
       repo: state.repo,
       clear: state.clear,
       loading: state.loading,
+      alert: state.alert,
       searchUsers,
       // getUsers,
       getUser,
@@ -109,8 +110,8 @@ const GithubState = props => {
       clearUsers,
       setLoading,
       setClear,
-      setClearTrue
-      // showAlert
+      setClearTrue,
+      showAlert,
     }}
     >
       {props.children}

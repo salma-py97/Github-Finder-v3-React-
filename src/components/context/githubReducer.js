@@ -1,4 +1,4 @@
-import {SEARCH_USERS, CLEAR_USERS, GET_USERS, GET_REPOS, GET_USER, SET_LOADING, SET_CLEAR, SET_CLEAR_TRUE} from './types'
+import {SEARCH_USERS, CLEAR_USERS, GET_USERS, GET_REPOS, GET_USER, SET_LOADING, SET_CLEAR, SET_CLEAR_TRUE, SET_ALERT, SET_ALERT_FALSE} from './types'
 
 
 export default (state, action) => {
@@ -48,6 +48,16 @@ export default (state, action) => {
       return {
         ...state,
         clear: true
+      }
+    case SET_ALERT:
+      return {
+        ...state,
+        alert: true
+      }
+    case SET_ALERT_FALSE:
+      return {
+        ...state,
+        alert: false
       }
     default :
       return state
