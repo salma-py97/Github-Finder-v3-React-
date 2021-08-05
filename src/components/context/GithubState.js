@@ -11,8 +11,8 @@ import GithubReducer from './githubReducer'
 
 import {SEARCH_USERS, CLEAR_USERS, GET_USERS, GET_REPOS, GET_USER, SET_LOADING, SET_CLEAR, SET_CLEAR_TRUE, SET_ALERT, SET_ALERT_FALSE} from './types'
 
-const githubClientId = process.env.GITHUB_CLIENT_ID;
-const githubClientSecret = process.env.GITHUB_CLIENT_SECRET;
+const githubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
+const githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
 
 const GithubState = props => {
 
